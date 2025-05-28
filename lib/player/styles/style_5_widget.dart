@@ -23,6 +23,7 @@ class StyleFiveWidget extends StatelessWidget {
   final bool showSpeedControl; // New property
   final List<double> playbackSpeeds; // New property
   final double currentSpeed;
+  final double playIconSize;
 
   final Function(double) setSpeed;
 
@@ -43,6 +44,7 @@ class StyleFiveWidget extends StatelessWidget {
     required this.currentSpeed,
     required this.setSpeed,
     required this.waveformData,
+    this.playIconSize= 40.0,
   });
 
   @override
@@ -87,7 +89,7 @@ class StyleFiveWidget extends StatelessWidget {
                   child: Icon(
                     isPlaying ? Icons.pause : Icons.play_arrow,
                     color: widget.iconColor,
-                    size: widget.size * 0.6,
+                    size: playIconSize,
                   ),
                 ),
               ),
