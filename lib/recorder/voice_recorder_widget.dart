@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:record/record.dart';
-
 import 'package:voice_note_kit/player/utils/format_duration.dart';
 import 'package:voice_note_kit/recorder/utils/utils_for_mobile.dart';
 import 'package:voice_note_kit/recorder/utils/utils_for_web.dart';
+
 import 'audio_recorder.dart';
 import 'sound_player.dart';
 
@@ -316,34 +316,17 @@ class _VoiceRecorderWidgetState extends State<VoiceRecorderWidget> {
                     ),
               ),
             ),
-          // Show timer text when recording
-          if (_isRecording && widget.showTimerText)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Text(
-                _isCancelled
-                    ? widget.cancelDoneText
-                    : formatDurationSeconds(
-                        _seconds), // Format the recording duration
-                style: widget.timerTextStyle ??
-                    TextStyle(
-                      color: widget.cancelHintColor,
-                      fontSize: widget.timerFontSize,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-            ),
+
           // Animated container for the recording button
           AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             width: widget.iconSize,
             height: widget.iconSize,
             decoration: BoxDecoration(
-              color: _isRecording
-                  ? _backgroundColor
-                  : widget
-                      .backgroundColor, // Change background color based on recording state
-              shape: BoxShape.circle, // Make the button circular
+              color: _isRecording ? _backgroundColor : widget.backgroundColor,
+              // Change background color based on recording state
+              shape: BoxShape.circle,
+              // Make the button circular
               boxShadow: _isRecording
                   ? [
                       BoxShadow(
@@ -353,15 +336,38 @@ class _VoiceRecorderWidgetState extends State<VoiceRecorderWidget> {
                     ]
                   : [],
             ),
+            padding: _isRecording ? const EdgeInsets.all(8) : EdgeInsets.zero,
             // Show custom widgets for start/stop recording or default icon
             child: _isRecording && widget.stopRecordingWidget != null
                 ? widget.stopRecordingWidget
                 : !_isRecording && widget.startRecordingWidget != null
                     ? widget.startRecordingWidget
-                    : Icon(
-                        _isRecording ? Icons.stop : Icons.mic_none,
-                        color: widget.iconColor,
-                        size: widget.iconSize / 2.3,
+                    : Row(
+                        children: [
+                          Icon(
+                            _isRecording ? Icons.stop : Icons.mic_none,
+                            color: widget.iconColor,
+                            size: widget.iconSize / 2.3,
+                          ),
+                          const SizedBox(width: 8),
+                          // Show timer text when recording
+                          if (_isRecording && widget.showTimerText)
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: Text(
+                                _isCancelled
+                                    ? widget.cancelDoneText
+                                    : formatDurationSeconds(
+                                        _seconds), // Format the recording duration
+                                style: widget.timerTextStyle ??
+                                    TextStyle(
+                                      color: widget.cancelHintColor,
+                                      fontSize: widget.timerFontSize,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                        ],
                       ),
           ),
         ],
