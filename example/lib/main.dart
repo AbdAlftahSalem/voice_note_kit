@@ -202,6 +202,7 @@ class _VoiceRecorderExampleState extends State<VoiceRecorderExample> {
               width: 300, // Width of the player widget
               showProgressBar: true, // Show the progress bar
               showTimer: true, // Show the timer
+              playIconSize: 30, // Size of the play icon
             ),
 
             const SizedBox(height: 30),

@@ -99,15 +99,15 @@ class StyleFiveWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (showTimer)
-                    Text(
-                      formatDuration(position),
-                      style: widget.timerTextStyle ??
-                          TextStyle(
-                            color: widget.iconColor,
-                            fontSize: 14,
-                          ),
-                    ),
+                  // if (showTimer)
+                  //   Text(
+                  //     formatDuration(position),
+                  //     style: widget.timerTextStyle ??
+                  //         TextStyle(
+                  //           color: widget.iconColor,
+                  //           fontSize: 14,
+                  //         ),
+                  //   ),
                   if (showProgressBar)
                     WaveformSlider(
                       waveform: waveformData,

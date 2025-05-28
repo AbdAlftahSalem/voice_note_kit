@@ -1,0 +1,2 @@
+E:/Flutter new/voice_note_kit/example/android/app/.cxx/Debug/5cd255a6/x86/CMakeFiles/edit_cache.dir
+E:/Flutter new/voice_note_kit/example/android/app/.cxx/Debug/5cd255a6/x86/CMakeFiles/rebuild_cache.dir

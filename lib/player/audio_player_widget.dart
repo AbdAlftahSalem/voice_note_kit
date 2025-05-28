@@ -54,6 +54,9 @@ class AudioPlayerWidget extends StatefulWidget {
   /// The overall width of the player widget.
   final double width;
 
+  /// Icon size for the play/pause button.
+  final double playIconSize;
+
   /// Whether to show the progress bar.
   final bool showProgressBar;
 
@@ -117,6 +120,7 @@ class AudioPlayerWidget extends StatefulWidget {
     this.onPlay,
     this.onSeek,
     this.onSpeedChange,
+    this.playIconSize = 40,
   });
 
   @override
@@ -361,6 +365,7 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
           playAudio: _playAudio,
           pauseAudio: _pauseAudio,
           seekTo: _seekTo,
+          playIconSize: widget.playIconSize,
         );
     }
   }
