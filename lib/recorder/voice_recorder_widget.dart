@@ -318,58 +318,58 @@ class _VoiceRecorderWidgetState extends State<VoiceRecorderWidget> {
             ),
 
           // Animated container for the recording button
-          // AnimatedContainer(
-          //   duration: const Duration(milliseconds: 200),
-          //   width: widget.iconSize,
-          //   height: widget.iconSize,
-          //   decoration: BoxDecoration(
-          //     color: _isRecording ? _backgroundColor : widget.backgroundColor,
-          //     // Change background color based on recording state
-          //     shape: BoxShape.circle,
-          //     // Make the button circular
-          //     boxShadow: _isRecording
-          //         ? [
-          //             BoxShadow(
-          //                 color: widget.cancelHintColor
-          //                     .withAlpha((0.4 * 255).round()),
-          //                 blurRadius: 8) // Add shadow when recording
-          //           ]
-          //         : [],
-          //   ),
-          //   padding: _isRecording ? const EdgeInsets.all(8) : EdgeInsets.zero,
-          //   // Show custom widgets for start/stop recording or default icon
-          //   child: _isRecording && widget.stopRecordingWidget != null
-          //       ? widget.stopRecordingWidget
-          //       : !_isRecording && widget.startRecordingWidget != null
-          //           ? widget.startRecordingWidget
-          //           : Row(
-          //               children: [
-          //                 Icon(
-          //                   _isRecording ? Icons.stop : Icons.mic_none,
-          //                   color: widget.iconColor,
-          //                   size: widget.iconSize / 2.3,
-          //                 ),
-          //                 const SizedBox(width: 8),
-          //                 // Show timer text when recording
-          //                 if (_isRecording && widget.showTimerText)
-          //                   Padding(
-          //                     padding: const EdgeInsets.only(bottom: 8.0),
-          //                     child: Text(
-          //                       _isCancelled
-          //                           ? widget.cancelDoneText
-          //                           : formatDurationSeconds(
-          //                               _seconds), // Format the recording duration
-          //                       style: widget.timerTextStyle ??
-          //                           TextStyle(
-          //                             color: widget.cancelHintColor,
-          //                             fontSize: widget.timerFontSize,
-          //                             fontWeight: FontWeight.bold,
-          //                           ),
-          //                     ),
-          //                   ),
-          //               ],
-          //             ),
-          // ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: widget.iconSize,
+            height: widget.iconSize,
+            decoration: BoxDecoration(
+              color: _isRecording ? _backgroundColor : widget.backgroundColor,
+              // Change background color based on recording state
+              shape: BoxShape.circle,
+              // Make the button circular
+              boxShadow: _isRecording
+                  ? [
+                      BoxShadow(
+                          color: widget.cancelHintColor
+                              .withAlpha((0.4 * 255).round()),
+                          blurRadius: 8) // Add shadow when recording
+                    ]
+                  : [],
+            ),
+            padding: _isRecording ? const EdgeInsets.all(8) : EdgeInsets.zero,
+            // Show custom widgets for start/stop recording or default icon
+            child: _isRecording && widget.stopRecordingWidget != null
+                ? widget.stopRecordingWidget
+                : !_isRecording && widget.startRecordingWidget != null
+                    ? widget.startRecordingWidget
+                    : Row(
+                        children: [
+                          Icon(
+                            _isRecording ? Icons.stop : Icons.mic_none,
+                            color: widget.iconColor,
+                            size: widget.iconSize / 2.3,
+                          ),
+                          const SizedBox(width: 8),
+                          // Show timer text when recording
+                          if (_isRecording && widget.showTimerText)
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: Text(
+                                _isCancelled
+                                    ? widget.cancelDoneText
+                                    : formatDurationSeconds(
+                                        _seconds), // Format the recording duration
+                                style: widget.timerTextStyle ??
+                                    TextStyle(
+                                      color: widget.cancelHintColor,
+                                      fontSize: widget.timerFontSize,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ),
+                        ],
+                      ),
+          ),
         ],
       ),
     );
